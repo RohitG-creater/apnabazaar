@@ -60,3 +60,8 @@ $route['mail-us'] = 'Home/Mail_Us';
 $route['category-women/product'] = 'Home/Women_Product';
 $route['category-men/product'] = 'Home/Men_Product';
 $route['single-product'] = 'Home/Single_Product';
+
+
+/**-------------Admin Route Url--------------------**/
+$route['admin/login'] = 'Admin/Admin_Login';
+
