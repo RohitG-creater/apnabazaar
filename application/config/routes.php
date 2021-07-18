@@ -64,4 +64,5 @@ $route['single-product'] = 'Home/Single_Product';
 
 /**-------------Admin Route Url--------------------**/
 $route['admin/login'] = 'Admin/Admin_Login';
+$route['admin/index'] = 'Admin/Index';
 

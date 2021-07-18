@@ -26,6 +26,13 @@ class Admin extends CI_Controller {
 		$this->load->view('Admin/login');
 	}
 
+	public function Index()
+	{
+		$data['pageName'] = 'index';
+		$this->load->view('Admin/master',$data);
+	}
+	
+
 
 	
 	
