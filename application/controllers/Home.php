@@ -52,8 +52,7 @@ class Home extends CI_Controller {
 		$this->load->view('master',$data);
 	}
 	public function Single_Product(){
-		$data['pageName'] = 'single_product';
-		$this->load->view('master',$data);
+		$this->load->view('single_product');
 	}
 
 	
