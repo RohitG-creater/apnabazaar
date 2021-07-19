@@ -31,6 +31,12 @@ class Admin extends CI_Controller {
 		$data['pageName'] = 'index';
 		$this->load->view('Admin/master',$data);
 	}
+
+	public function Product_List()
+	{
+		$data['pageName'] = 'product_list';
+		$this->load->view('Admin/master',$data);
+	}
 	
 
 
