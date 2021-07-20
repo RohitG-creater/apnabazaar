@@ -66,4 +66,7 @@ $route['single-product'] = 'Home/Single_Product';
 $route['admin/login'] = 'Admin/Admin_Login';
 $route['admin/index'] = 'Admin/Index';
 $route['admin/product-list'] = 'Admin/Product_List';
+$route['admin/add-category'] = 'Admin/Add_Category';
+$route['admin/add-product'] = 'Admin/Add_Product';
+$route['admin/category-list'] = 'Admin/Category_List';
 

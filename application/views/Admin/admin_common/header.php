@@ -16,6 +16,9 @@
         href="<?= base_url('public/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css'); ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('public/admin/dist/css/adminlte.min.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('public/admin/plugins/codemirror/codemirror.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('public/admin/plugins/codemirror/theme/monokai.css'); ?>">
+  <!-- SimpleMDE -->
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -42,8 +45,12 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                    <a href="#"  class="btn btn-danger nav-link" >Logout</a>
+                </li>
+
                 <!-- Navbar Search -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
                     </a>
@@ -63,8 +70,8 @@
                             </div>
                         </form>
                     </div>
-                </li>
-
+                </li> -->
+              
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -111,7 +118,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="<?= base_url('admin/index') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Dashboard
@@ -119,7 +126,23 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="<?= base_url('admin/add-category')?>" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Add Category
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/category-list')?>" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    All Category
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/add-product') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Add Product

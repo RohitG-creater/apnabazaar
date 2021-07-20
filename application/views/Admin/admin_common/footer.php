@@ -32,6 +32,22 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('public/admin/dist/js/demo.js') ?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?= base_url('public/admin/dist/js/pages/dashboard2.js') ?>"></script>
+<script src="<?= base_url('public/admin/plugins/codemirror/codemirror.js') ?>"></script>
+<script src="<?= base_url('public/admin/plugins/codemirror/mode/css/css.js') ?>"></script>
+<script src="<?= base_url('public/admin/plugins/codemirror/mode/xml/xml.js') ?>"></script>
+<script src="<?= base_url('public/admin/plugins/codemirror/mode/htmlmixed/htmlmixed.js') ?>"></script>
+<!-- AdminLTE for demo purposes -->
+<!-- Page specific script -->
+<script>
+  $(function () {
+    // Summernote
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
 </body>
 </html>

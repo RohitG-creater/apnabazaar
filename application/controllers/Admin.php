@@ -37,6 +37,22 @@ class Admin extends CI_Controller {
 		$data['pageName'] = 'product_list';
 		$this->load->view('Admin/master',$data);
 	}
+
+	public function Add_Category(){
+		$data['pageName'] = 'add_category';
+		$this->load->view('Admin/master',$data);
+	}
+
+	public function Category_List()
+	{
+		$data['pageName'] = 'category_list';
+		$this->load->view('Admin/master',$data);
+	}
+
+	public function Add_Product(){
+		$data['pageName'] = 'add_product';
+		$this->load->view('Admin/master',$data);
+	}
 	
 
 
