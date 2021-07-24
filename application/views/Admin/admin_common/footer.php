@@ -12,6 +12,9 @@
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
+<script>
+    var base_url = "<?= base_url(); ?>";
+</script>
 <script src="<?= base_url('public/admin/plugins/jquery/jquery.min.js') ?>"></script>
 <!-- Bootstrap -->
 <script src="<?= base_url('public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
@@ -39,15 +42,9 @@
 <!-- AdminLTE for demo purposes -->
 <!-- Page specific script -->
 <script>
-  $(function () {
-    // Summernote
 
-    // CodeMirror
-    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-      mode: "htmlmixed",
-      theme: "monokai"
-    });
-  })
 </script>
+<script src="<?= base_url('public/admin/js/custom_js.js') ?>"></script>
+
 </body>
 </html>

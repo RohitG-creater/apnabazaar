@@ -28,32 +28,32 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form>
+                        <form action="#">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Product Name</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Enter email">
+                                            <input type="text" class="form-control" id="add_product_name"
+                                                placeholder="">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Product Quantity</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                                placeholder="Password">
+                                            <input type="text" class="form-control" id="add_product_quantity"
+                                                placeholder="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6 pt-3">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Product Offer Price</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
+                                        <input type="text" class="form-control" id="add_product_offer_price"
+                                            placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Product Without Offer Price</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Password">
+                                        <input type="text" class="form-control" id="add_product_without_offer"
+                                            placeholder="">
                                     </div>
                                 </div>
                             </div>
@@ -63,21 +63,22 @@
                                         <label for="exampleInputFile">Product Image 1</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose
+                                                <input type="file" name="files[]" onchange="loadFile(event)"  class="custom-file-input add_product_image" id="">
+                                                <label class="custom-file-label" for="add_product_image">Choose
                                                     file</label>
                                             </div>
                                             <div class="input-group-append">
                                                 <span class="input-group-text">Upload</span>
                                             </div>
+                                            <!-- <img width="200" />	 -->
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">Product Image 2</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose
+                                                <input type="file" name="files[]" onchange="loadFile(event)"  class="custom-file-input add_product_image" id="">
+                                                <label class="custom-file-label" for="add_product_image">Choose
                                                     file</label>
                                             </div>
                                             <div class="input-group-append">
@@ -89,17 +90,16 @@
                                 <div class="col-6 pt-3">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Product Url</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
+                                        <input type="text" class="form-control" id="add_product_url"
+                                            placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Product Category</label>
-                                        <select class="form-control">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
+
+                                        <select class="form-control" id="add_product_category">
+                                            <?php if($category_list->num_rows() > 0 ) { foreach($category_list->result() as $list)  { ?> 
+                                            <option value="<?= $list->Category_Name; ?>"><?= $list->Category_Name; ?></option>
+                                            <?php } } ?>
                                         </select>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                             </div>
                                             <!-- /.card-header -->
                                             <div class="card-body p-0">
-                                                <textarea id="codeMirrorDemo" class="p-3"></textarea>
+                                                <textarea id="add_product_description" class="p-3 product_description"></textarea>
                                             </div>
                                             <div class="card-footer">
                                                
@@ -132,7 +132,7 @@
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" id="btn_add_product" class="btn btn-primary">Add Product</button>
                     </div>
                     </form>
                 </div>

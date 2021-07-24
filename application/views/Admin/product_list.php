@@ -21,73 +21,67 @@
     <section class="content">
       <div class="container-fluid">
         
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+          <!-- /.row -->
+          <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Category Table</h3>
 
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control float-right"
+                                        placeholder="Search">
 
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Product Name</th>
+                                        <th>Product Image</th>
+                                        <th>Product Quantity</th>
+                                        <th>Product Wh Offer</th>
+                                        <th>Product WO Offer</th>
+                                        <th>Product Category</th>
+                                        <th>Product Url</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <?php if($product_list->num_rows() > 0) { foreach($product_list->result() as $list) { ?>
+                                    <tr>
+                                        <td><?= $list->ID ?></td>
+                                        <td><?= $list->Product_Name ?></td>
+                                        <td><?php 
+                                         $img = explode(",",$list->Product_Image);
+                                         echo "<img src='".base_url('public/images/').$img[0]."' height='100' width='100'>";
+                                        ?></td>
+                                        <td><?= $list->Product_Quantity ?></td>
+                                        <td><?= $list->Product_Offer_Price ?></td>
+                                        <td><?= $list->Product_Price_Without_Offer ?></td>
+                                        <td><?= $list->Product_Category ?></td>
+                                        <td><?= $list->Product_Url ?></td>
+                                        <td><a href="<?= base_url('admin/get-product-by-id/product-id-'.$list->ID) ?>" class="btn btn-info" data-edit-id="<?= $list->ID; ?>"><i class="fa fa-edit"></i></a><button class="btn btn-danger delete_category" data-delete-id="<?= $list->ID; ?>"><i class="fa fa-trash"></i></button></td>
+                                    </tr>
+                                  <?php }  } ?> 
+                                </tbody>
+                            </table> 
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                  </div>
+                    <!-- /.card -->
                 </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-          </div>
-        </div>
         
       </div><!-- /.container-fluid -->
     </section>

@@ -69,4 +69,9 @@ $route['admin/product-list'] = 'Admin/Product_List';
 $route['admin/add-category'] = 'Admin/Add_Category';
 $route['admin/add-product'] = 'Admin/Add_Product';
 $route['admin/category-list'] = 'Admin/Category_List';
+$route['admin/save_category'] = 'Admin/Save_Category';
+$route['admin/get_edit_category'] = 'Admin/Get_Edit_Category';
+$route['admin/update_category'] = 'Admin/Update_Category';
+$route['admin/save_product'] = 'Admin/Save_Product';
+$route['admin/get-product-by-id/product-id-(:any)'] = 'Admin/Get_Edit_Product';
 
