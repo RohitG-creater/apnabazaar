@@ -126,7 +126,10 @@ class Admin extends CI_Controller {
 	public function Get_Edit_Product(){
 		$array_url = explode("-",$this->uri->segment(3));
 		$id = end($array_url);
-		print_r($this->Category->get_edit_product($id));
+	    $data['Edit_Product'] = $this->Category->get_edit_product($id);
+		$data['pageName'] = 'update_product';
+		$data['category_list'] = $this->Category->get_category_list();
+		$this->load->view('Admin/master',$data);
 	}
 
 

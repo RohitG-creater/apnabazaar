@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Add Product Page</li>
+                        <li class="breadcrumb-item active">Update Product Page</li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Add Product</h3>
+                            <h3 class="card-title">Update Product</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -35,12 +35,12 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Product Name</label>
                                             <input type="text" class="form-control" id="add_product_name"
-                                                placeholder="">
+                                                placeholder="" value="<?= $Edit_Product->Product_Name; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Product Quantity</label>
-                                            <input type="text" class="form-control" id="add_product_quantity"
-                                                placeholder="">
+                                            <input type="number" class="form-control" id="add_product_quantity"
+                                                placeholder="" value="<?= $Edit_Product->Product_Quantity; ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -48,12 +48,12 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Product Offer Price</label>
                                         <input type="text" class="form-control" id="add_product_offer_price"
-                                            placeholder="">
+                                            placeholder="" value="<?= $Edit_Product->Product_Offer_Price; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Product Without Offer Price</label>
                                         <input type="text" class="form-control" id="add_product_without_offer"
-                                            placeholder="">
+                                            placeholder="" value="<?= $Edit_Product->Product_Price_Without_Offer; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +64,10 @@
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" name="files[]" onchange="loadFile(event)"  class="custom-file-input add_product_image" id="">
+                                                <?php 
+                                                    $array_image = explode(",",$Edit_Product->Product_Image);
+                                                ?>
+                                                <input type="hidden" class="hidden_image">
                                                 <label class="custom-file-label" for="add_product_image">Choose
                                                     file</label>
                                             </div>
@@ -78,6 +82,7 @@
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" name="files[]" onchange="loadFile(event)"  class="custom-file-input add_product_image" id="">
+                                                <input type="hidden" class="hidden_image">
                                                 <label class="custom-file-label" for="add_product_image">Choose
                                                     file</label>
                                             </div>
@@ -91,14 +96,18 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Product Url</label>
                                         <input type="text" class="form-control" id="add_product_url"
-                                            placeholder="">
+                                            placeholder="" value="<?= $Edit_Product->Product_Url; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label>Product Category</label>
 
                                         <select class="form-control" id="add_product_category">
-                                            <?php if($category_list->num_rows() > 0 ) { foreach($category_list->result() as $list)  { ?> 
-                                            <option value="<?= $list->Category_Name; ?>"><?= $list->Category_Name; ?></option>
+                                            <?php if($category_list->num_rows() > 0 ) { foreach($category_list->result() as $list)  { 
+                                                $value = "";
+                                                if($list->Category_Name == $Edit_Product->Product_Category){
+                                                    $value = "selected";
+                                                }?> 
+                                            <option value="<?= $list->Category_Name; ?>" <?= $value ?>><?= $list->Category_Name; ?></option>
                                             <?php } } ?>
                                         </select>
                                     </div>
@@ -117,7 +126,7 @@
                                             </div>
                                             <!-- /.card-header -->
                                             <div class="card-body p-0">
-                                                <textarea id="add_product_description" class="p-3 product_description"></textarea>
+                                                <textarea id="add_product_description" class="p-3 product_description"><?= $Edit_Product->Product_Description; ?></textarea>
                                             </div>
                                             <div class="card-footer">
                                                
