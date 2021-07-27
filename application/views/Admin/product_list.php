@@ -71,7 +71,7 @@
                                         <td><?= $list->Product_Price_Without_Offer ?></td>
                                         <td><?= $list->Product_Category ?></td>
                                         <td><?= $list->Product_Url ?></td>
-                                        <td><a href="<?= base_url('admin/get-product-by-id/product-id-'.$list->ID) ?>" class="btn btn-info" data-edit-id="<?= $list->ID; ?>"><i class="fa fa-edit"></i></a><button class="btn btn-danger delete_category" data-delete-id="<?= $list->ID; ?>"><i class="fa fa-trash"></i></button></td>
+                                        <td><a href="<?= base_url('admin/get-product-by-id/product-id-'.$list->ID) ?>" class="btn btn-info" data-edit-id="<?= $list->ID; ?>"><i class="fa fa-edit"></i></a><button class="btn btn-danger delete_product" data-delete-id="<?= $list->ID; ?>"><i class="fa fa-trash"></i></button></td>
                                     </tr>
                                   <?php }  } ?> 
                                 </tbody>

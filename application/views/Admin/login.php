@@ -45,14 +45,14 @@ Author URL: http://w3layouts.com
 								<div class="one-frm">
 
 									<label>Email</label>
-									<input type="email" name="email"  placeholder="" required="">
+									<input type="email" name="email" id="admin_email" placeholder="" required="">
 								</div>
 								<div class="one-frm">
 									<label>Password</label>
-									<input type="password" name="Password"  placeholder="" required="">
+									<input type="password" name="Password" id="admin_password"  placeholder="" required="">
 								</div>
                                 
-                                <button class="btn btn-style mt-3">Sign In </button>
+                                <button class="btn btn-style mt-3" id="btn_submit_loin">Sign In </button>
                             </form>
                         </div>
                     </div>

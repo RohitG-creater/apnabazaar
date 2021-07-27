@@ -264,14 +264,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/category-list')?>" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    All Category
-                                </p>
-                            </a>
-                        </li>
+                       
                         <li class="nav-item">
                             <a href="<?= base_url('admin/add-product') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
