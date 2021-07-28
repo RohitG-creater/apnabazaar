@@ -28,8 +28,20 @@ class Admin extends CI_Controller {
 		$this->load->model('Category');
 		$this->load->model('Product');
 		$this->load->library('session');
-	  }
+	 }
   
+	public function Login_Validation(){
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+		$this->db->where('User_Email',$email);
+		$this->db->where('User_Password',$password);
+		if($this->db->get('tbl_admin')->row() == null){
+			echo json_encode(["message"=>"Email_Not_Exist"]);
+		}else{
+			$this->session->set_userdata(["email"=>$email]);
+			echo json_encode(["message"=>"Success"]);
+		}
+	}
 	public function Admin_Login()
 	{
 		$this->load->view('Admin/login');
@@ -37,27 +49,44 @@ class Admin extends CI_Controller {
 
 	public function Index()
 	{
-		$data['pageName'] = 'index';
-		$this->load->view('Admin/master',$data);
+       if($this->session->userdata("email")){
+			$data['pageName'] = 'index';
+			$this->load->view('Admin/master',$data);
+		}else{
+			redirect('admin/login'); 
+		}
+		
 	}
 
 	public function Product_List()
 	{
-		$data['product_list'] = $this->Product->get_product_list();
-		$data['pageName'] = 'product_list';
-		$this->load->view('Admin/master',$data);
+		if($this->session->userdata("email")){
+			$data['product_list'] = $this->Product->get_product_list();
+			$data['pageName'] = 'product_list';
+			$this->load->view('Admin/master',$data);
+		}else{
+			redirect('admin/login'); 
+		}
 	}
 
 	public function Add_Category(){
-		$data['pageName'] = 'add_category';
-		$data['category_list'] = $this->Category->get_category_list();
-		$this->load->view('Admin/master',$data);
+		if($this->session->userdata("email")){
+			$data['pageName'] = 'add_category';
+			$data['category_list'] = $this->Category->get_category_list();
+			$this->load->view('Admin/master',$data);
+		}else{
+			redirect('admin/login'); 
+		}
 	}
 
 	public function Add_Product(){
-		$data['category_list'] = $this->Category->get_category_list();
-		$data['pageName'] = 'add_product';
-		$this->load->view('Admin/master',$data);
+		if($this->session->userdata("email")){
+			$data['category_list'] = $this->Category->get_category_list();
+			$data['pageName'] = 'add_product';
+			$this->load->view('Admin/master',$data);
+		}else{
+			redirect('admin/login'); 
+		}
 	}
 
 	public function Save_Category(){
@@ -119,12 +148,16 @@ class Admin extends CI_Controller {
 	}
 
 	public function Get_Edit_Product(){
-		$array_url = explode("-",$this->uri->segment(3));
-		$id = end($array_url);
-	    $data['Edit_Product'] = $this->Product->get_edit_product($id);
-		$data['pageName'] = 'update_product';
-		$data['category_list'] = $this->Category->get_category_list();
-		$this->load->view('Admin/master',$data);
+		if($this->session->userdata("email")){
+			$array_url = explode("-",$this->uri->segment(3));
+			$id = end($array_url);
+			$data['Edit_Product'] = $this->Product->get_edit_product($id);
+			$data['pageName'] = 'update_product';
+			$data['category_list'] = $this->Category->get_category_list();
+			$this->load->view('Admin/master',$data);
+		}else{
+			redirect('admin/login'); 
+		}
 	}
 
 	public function Update_Product(){
@@ -191,6 +224,13 @@ class Admin extends CI_Controller {
 	public function Delete_Product(){
 		$ID = $this->input->post('delete_id');
 		$this->Product->Delete_Product($ID);
+	}
+
+	public function Logout(){
+		if($this->session->userdata("email")){
+			$this->session->unset_userdata("email");
+			redirect("admin/login");
+		}
 	}
 }
 ?>

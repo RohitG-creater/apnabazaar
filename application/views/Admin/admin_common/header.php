@@ -177,7 +177,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="btn btn-danger nav-link">Logout</a>
+                    <a href="<?= base_url(); ?>admin/logout" class="btn btn-danger nav-link">Logout</a>
                 </li>
 
                 <!-- Navbar Search -->
