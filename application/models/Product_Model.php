@@ -1,5 +1,5 @@
 <?php
-class Product extends CI_Model {
+class Product_Model extends CI_Model {
 
     public function Save_Product($data){
         $this->db->insert('tbl_product',$data);

@@ -1,5 +1,5 @@
 <?php
-class Category extends CI_Model {
+class Category_Model extends CI_Model {
 
     public function get_category_list(){
         $query = $this->db->get('tbl_category');

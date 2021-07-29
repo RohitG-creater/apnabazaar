@@ -4,7 +4,7 @@ Header('Access-Control-Allow-Headers: *'); //for allow any headers, insecure
 Header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE'); //method allowed
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Admin_Controller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,8 +25,8 @@ class Admin extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('Category');
-		$this->load->model('Product');
+		$this->load->model('Category_Model');
+		$this->load->model('Product_Model');
 		$this->load->library('session');
 	 }
   
@@ -61,7 +61,7 @@ class Admin extends CI_Controller {
 	public function Product_List()
 	{
 		if($this->session->userdata("email")){
-			$data['product_list'] = $this->Product->get_product_list();
+			$data['product_list'] = $this->Product_Model->get_product_list();
 			$data['pageName'] = 'product_list';
 			$this->load->view('Admin/master',$data);
 		}else{
@@ -72,7 +72,7 @@ class Admin extends CI_Controller {
 	public function Add_Category(){
 		if($this->session->userdata("email")){
 			$data['pageName'] = 'add_category';
-			$data['category_list'] = $this->Category->get_category_list();
+			$data['category_list'] = $this->Category_Model->get_category_list();
 			$this->load->view('Admin/master',$data);
 		}else{
 			redirect('admin/login'); 
@@ -81,7 +81,7 @@ class Admin extends CI_Controller {
 
 	public function Add_Product(){
 		if($this->session->userdata("email")){
-			$data['category_list'] = $this->Category->get_category_list();
+			$data['category_list'] = $this->Category_Model->get_category_list();
 			$data['pageName'] = 'add_product';
 			$this->load->view('Admin/master',$data);
 		}else{
@@ -91,19 +91,19 @@ class Admin extends CI_Controller {
 
 	public function Save_Category(){
 		$data = array ( 'Category_Name' => $this->input->get('category_name') , 'Category_Url' => $this->input->get('category_url') );
-		$this->Category->save_category($data);
+		$this->Category_Model->save_category($data);
 		echo 'Data_Inserted';
 	}
 
 	public function Get_Edit_Category(){
 		$id = $this->input->get('category_id');
-		$data['Edit_Category'] = $this->Category->get_edit_category($id);
+		$data['Edit_Category'] = $this->Category_Model->get_edit_category($id);
 		echo json_encode($data);
 	}
 
 	public function Update_Category(){
 		$data = array('Category_Name' => $this->input->get('category_name') , 'Category_Url' => $this->input->get('category_url'));
-		$this->Category->Update_Category($this->input->get('category_id'),$data);
+		$this->Category_Model->Update_Category($this->input->get('category_id'),$data);
 	}
 
 	public function Save_Product(){
@@ -143,7 +143,7 @@ class Admin extends CI_Controller {
 			'Product_Url'=>$this->input->post('product_url'),
 		);
 
-		$this->Product->Save_Product($data);
+		$this->Product_Model->Save_Product($data);
 		echo json_encode("updated");
 	}
 
@@ -151,9 +151,9 @@ class Admin extends CI_Controller {
 		if($this->session->userdata("email")){
 			$array_url = explode("-",$this->uri->segment(3));
 			$id = end($array_url);
-			$data['Edit_Product'] = $this->Product->get_edit_product($id);
+			$data['Edit_Product'] = $this->Product_Model->get_edit_product($id);
 			$data['pageName'] = 'update_product';
-			$data['category_list'] = $this->Category->get_category_list();
+			$data['category_list'] = $this->Category_Model->get_category_list();
 			$this->load->view('Admin/master',$data);
 		}else{
 			redirect('admin/login'); 
@@ -199,7 +199,7 @@ class Admin extends CI_Controller {
 			'Product_Category'=>$this->input->post('product_category'),
 			'Product_Url'=>$this->input->post('product_url'),
 		);
-		$this->Product->Update_Product($data,$this->input->post('product_id'));
+		$this->Product_Model->Update_Product($data,$this->input->post('product_id'));
 		echo json_encode("updated");
 	}
 
@@ -218,12 +218,12 @@ class Admin extends CI_Controller {
 
 	public function Delete_Category(){
 		$ID = $this->input->post('delete_id');
-		$this->Category->Delete_Category($ID);
+		$this->Category_Model->Delete_Category($ID);
 	}
 
 	public function Delete_Product(){
 		$ID = $this->input->post('delete_id');
-		$this->Product->Delete_Product($ID);
+		$this->Product_Model->Delete_Product($ID);
 	}
 
 	public function Logout(){

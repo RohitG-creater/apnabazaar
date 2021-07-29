@@ -53,29 +53,29 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['checkout-page'] = 'Home/Checkout';
-$route['login'] = 'Home/User_Login';
-$route['registration'] = 'Home/User_Registration';
-$route['mail-us'] = 'Home/Mail_Us';
-$route['category-women/product'] = 'Home/Women_Product';
-$route['category-men/product'] = 'Home/Men_Product';
-$route['single-product'] = 'Home/Single_Product';
-
+$route['checkout-page'] = 'Home_Controller/Checkout';
+$route['login'] = 'Home_Controller/User_Login';
+$route['registration'] = 'Home_Controller/User_Registration';
+$route['mail-us'] = 'Home_Controller/Mail_Us';
+$route['category-women/product'] = 'Home_Controller/Women_Product';
+$route['category-men/product'] = 'Home_Controller/Men_Product';
+$route['single-product'] = 'Home_Controller/Single_Product';
+$route['save_registration'] = 'User_Controller/Save_Registration';
 
 /**-------------Admin Route Url--------------------**/
-$route['admin/login'] = 'Admin/Admin_Login';
-$route['admin/login_validation'] = 'Admin/Login_Validation';
-$route['admin/logout'] = 'Admin/Logout';
-$route['admin/index'] = 'Admin/Index';
-$route['admin/product-list'] = 'Admin/Product_List';
-$route['admin/add-category'] = 'Admin/Add_Category';
-$route['admin/add-product'] = 'Admin/Add_Product';
-$route['admin/save_category'] = 'Admin/Save_Category';
-$route['admin/get_edit_category'] = 'Admin/Get_Edit_Category';
-$route['admin/update_category'] = 'Admin/Update_Category';
-$route['admin/save_product'] = 'Admin/Save_Product';
-$route['admin/get-product-by-id/product-id-(:any)'] = 'Admin/Get_Edit_Product';
-$route['admin/update_product'] = 'Admin/Update_Product';
-$route['admin/delete_category'] = 'Admin/Delete_Category';
-$route['admin/delete_product'] = 'Admin/Delete_Product';
+$route['admin/login'] = 'Admin_Controller/Admin_Login';
+$route['admin/login_validation'] = 'Admin_Controller/Login_Validation';
+$route['admin/logout'] = 'Admin_Controller/Logout';
+$route['admin/index'] = 'Admin_Controller/Index';
+$route['admin/product-list'] = 'Admin_Controller/Product_List';
+$route['admin/add-category'] = 'Admin_Controller/Add_Category';
+$route['admin/add-product'] = 'Admin_Controller/Add_Product';
+$route['admin/save_category'] = 'Admin_Controller/Save_Category';
+$route['admin/get_edit_category'] = 'Admin_Controller/Get_Edit_Category';
+$route['admin/update_category'] = 'Admin_Controller/Update_Category';
+$route['admin/save_product'] = 'Admin_Controller/Save_Product';
+$route['admin/get-product-by-id/product-id-(:any)'] = 'Admin_Controller/Get_Edit_Product';
+$route['admin/update_product'] = 'Admin_Controller/Update_Product';
+$route['admin/delete_category'] = 'Admin_Controller/Delete_Category';
+$route['admin/delete_product'] = 'Admin_Controller/Delete_Product';
 

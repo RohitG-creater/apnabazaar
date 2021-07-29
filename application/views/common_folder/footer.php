@@ -178,6 +178,7 @@ $('.value-minus1').on('click', function() {
     <!-- cart -->
     <!--start-rate-->
     <script src="<?= base_url().'public/js/jstarbox.js' ?>"></script>
+    <script src="<?= base_url().'public/custom_js/form_validation.js' ?>"></script>
     </body>
 
 </html>
