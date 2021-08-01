@@ -26,6 +26,15 @@ class User_Controller extends CI_Controller {
 			echo json_encode(["message"=>"Inserted"]);
 		}
 	}
+
+	public function Check_Login(){
+		$login_result = $this->User_Model->Check_Account_Exist($this->input->post('Login_User_Mobile'),$this->input->post('Login_User_Password'));
+		if($login_result == null){
+			echo json_encode(["message"=>"Account_Not_Exist"]);
+		}else{
+			echo json_encode(["message"=>"Success"]);
+		}
+	}
 }
 
 

@@ -3417,3 +3417,12 @@ h3.tittle1, h3.tittle {
     right: 85%;
 }
 }
+
+
+.product_text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+}

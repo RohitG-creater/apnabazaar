@@ -31,6 +31,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!--//End-rate-->
     <link href="<?= base_url().'public/css/coreSlider.css' ?>" rel="stylesheet" type="text/css">
+    <script src="<?= base_url('public/js/simpleCart.min.js') ?>"></script>
+    <!-- cart -->
+    <script defer src="<?= base_url('public/js/jquery.flexslider.js') ?>"></script>
+    <link rel="stylesheet" href="<?= base_url('public/css/flexslider.css') ?>" type="text/css" media="screen" />
+    <script src="<?= base_url('public/js/imagezoom.js') ?>"></script>
+    <script>
+    // Can also be used with $(document).ready()
+    $(window).load(function() {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+    </script>
     <script>
         var base_url = "<?= base_url(); ?>";
     </script>
@@ -163,6 +177,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
     }
     </style>
+      <script type="text/javascript">
+    jQuery(function() {
+        jQuery('.starbox').each(function() {
+            var starbox = jQuery(this);
+            starbox.starbox({
+                average: starbox.attr('data-start-value'),
+                changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass(
+                    'clickonce') ? 'once' : true,
+                ghosting: starbox.hasClass('ghosting'),
+                autoUpdateAverage: starbox.hasClass('autoupdate'),
+                buttons: starbox.hasClass('smooth') ? false : starbox.attr(
+                    'data-button-count') || 5,
+                stars: starbox.attr('data-star-count') || 5
+            }).bind('starbox-value-changed', function(event, value) {
+                if (starbox.hasClass('random')) {
+                    var val = Math.random();
+                    starbox.next().text(' ' + val);
+                    return val;
+                }
+            })
+        });
+    });
+    </script>
+    <!--//End-rate-->
+
+    <link href="<?= base_url('public/css/owl.carousel.css'); ?>" rel="stylesheet">
+    <script src="<?= base_url('public/js/owl.carousel.js'); ?>"></script>
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo").owlCarousel({
+            items: 1,
+            lazyLoad: true,
+            autoPlay: true,
+            navigation: false,
+            navigationText: false,
+            pagination: true,
+        });
+    });
+    </script>
 </head>
 <body>
 <div class="loading" style="display:none;">&#8230;</div>

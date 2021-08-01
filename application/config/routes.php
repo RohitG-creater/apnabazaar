@@ -61,6 +61,9 @@ $route['category-women/product'] = 'Home_Controller/Women_Product';
 $route['category-men/product'] = 'Home_Controller/Men_Product';
 $route['single-product'] = 'Home_Controller/Single_Product';
 $route['save_registration'] = 'User_Controller/Save_Registration';
+$route['check_login'] = 'User_Controller/Check_Login';
+$route['product-(:any)'] = 'Home_Controller/Single_Product';
+
 
 /**-------------Admin Route Url--------------------**/
 $route['admin/login'] = 'Admin_Controller/Admin_Login';

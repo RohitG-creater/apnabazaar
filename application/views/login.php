@@ -7,17 +7,17 @@
                 <form action="#" method="post">
                     <div class="key">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <input type="text" value="Email" id="user_email" name="Email" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                        <input type="text" value="" name="Mobile" 
+                            placeholder="Mobile" id="login_user_mobile" required="">
                         <div class="clearfix"></div>
                     </div>
                     <div class="key">
                         <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input type="password" id="user_password" value="Password" name="Password" onfocus="this.value = '';"
-                            onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                        <input type="password" value="" name="Password"
+                            placeholder="Password" id="login_user_password" required="">
                         <div class="clearfix"></div>
                     </div>
-                    <input type="submit" value="Login">
+                    <button type="button" class="btn btn-success" id="btn_submit_login_user">Login</button>
                 </form>
             </div>
             <div class="forg">

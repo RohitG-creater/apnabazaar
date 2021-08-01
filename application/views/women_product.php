@@ -209,17 +209,20 @@
 									<div id="myTabContent" class="tab-content">
 										<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 											<div class="product-tab">
+												<?php 
+												if(isset($women_product) && $women_product != null){ foreach($women_product->result() as $product){ ?>
+													
 												<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
 													<div class="grid-arr">
 														<div  class="grid-arrival">
 															<figure>		
 																<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+																	<?php $image_array = explode(",",$product->Product_Image); 
+																	foreach($image_array as $image) { ?>
 																	<div class="grid-img">
-																		<img  src="<?= base_url(); ?>public/images/p6.jpg" class="img-responsive" alt="">
+																		<img  src="<?= base_url('public/images/'.$image); ?>" class="img-responsive" alt="">
 																	</div>
-																	<div class="grid-img">
-																		<img  src="<?= base_url(); ?>public/images/p5.jpg" class="img-responsive"  alt="">
-																	</div>			
+																	<?php } ?>
 																</a>		
 															</figure>	
 														</div>
@@ -227,66 +230,19 @@
 															<div class="starbox small ghosting"> </div>
 														</div>
 														<div class="women">
-															<h6><a href="<?= base_url(); ?>single-product">Sed ut perspiciatis unde</a></h6>
+															<h6><a href="<?= base_url($product->Product_Url); ?>" class="product_text"><?= $product->Product_Name; ?></a></h6>
 															<span class="size">XL / XXL / S </span>
-															<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
+															<p ><del><?= $product->Product_Price_Without_Offer; ?></del><em class="item_price"><?= $product->Product_Offer_Price; ?></em></p>
 															<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
 														</div>
 													</div>
 												</div>
-												<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
-													<div class="grid-arr">
-														<div  class="grid-arrival">
-															<figure>		
-																<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
-																	<div class="grid-img">
-																		<img  src="<?= base_url(); ?>public/images/p21.jpg" class="img-responsive" alt="">
-																	</div>
-																	<div class="grid-img">
-																		<img  src="<?= base_url(); ?>public/images/p22.jpg" class="img-responsive"  alt="">
-																	</div>			
-																</a>		
-															</figure>	
-														</div>
-														<div class="block">
-															<div class="starbox small ghosting"> </div>
-														</div>
-														<div class="women">
-															<h6><a href="<?= base_url(); ?>single-product">Sed ut perspiciatis unde</a></h6>
-															<span class="size">XL / XXL / S </span>
-															<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
-															<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
-													<div class="grid-arr">
-														<div  class="grid-arrival">
-															<figure>		
-																<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
-																	<div class="grid-img">
-																		<img  src="<?= base_url(); ?>public/images/p14.jpg" class="img-responsive" alt="">
-																	</div>
-																	<div class="grid-img">
-																		<img  src="<?= base_url(); ?>public/images/p13.jpg" class="img-responsive"  alt="">
-																	</div>			
-																</a>		
-															</figure>	
-														</div>
-														<div class="block">
-															<div class="starbox small ghosting"> </div>
-														</div>
-														<div class="women">
-															<h6><a href="<?= base_url(); ?>single-product">Sed ut perspiciatis unde</a></h6>
-															<span class="size">XL / XXL / S </span>
-															<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
-															<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
-														</div>
-													</div>
-												</div>
+												<?php } } ?>
+												
+												
 												<div class="clearfix"></div>
 											</div>
-											<div class="product-tab prod1">
+											<!-- <div class="product-tab prod1">
 												<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
 													<div class="grid-arr">
 														<div  class="grid-arrival">
@@ -519,9 +475,9 @@
 													</div>
 												</div>
 												<div class="clearfix"></div>
-											</div>
+											</div> -->
 										</div>
-										<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+										<!-- <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 											<div class="product-tab1">
 												<div class="col-md-4 product-tab1-grid">
 													<div class="grid-arr">
@@ -680,7 +636,7 @@
 												<div class="clearfix"></div>
 											</div>
 											
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>
