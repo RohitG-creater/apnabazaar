@@ -49,8 +49,7 @@ class Home_Controller extends CI_Controller {
 		$final_product = array_slice($product_array,1);
 		$product_name = implode(" ",$final_product);
 		$data['single_product'] = $this->Home_Model->Get_Single_Product($product_name);
-		$data['pageName'] = 'single_product';
-		$this->load->view('master',$data);
+		$this->load->view('single_product',$data);
 	}
 
 	

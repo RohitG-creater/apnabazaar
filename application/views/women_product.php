@@ -230,7 +230,7 @@
 															<div class="starbox small ghosting"> </div>
 														</div>
 														<div class="women">
-															<h6><a href="<?= base_url($product->Product_Url); ?>" class="product_text"><?= $product->Product_Name; ?></a></h6>
+															<h6><a href="<?= str_replace(" ","-",base_url($product->Product_Url)); ?>" class="product_text"><?= $product->Product_Name; ?></a></h6>
 															<span class="size">XL / XXL / S </span>
 															<p ><del><?= $product->Product_Price_Without_Offer; ?></del><em class="item_price"><?= $product->Product_Offer_Price; ?></em></p>
 															<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
