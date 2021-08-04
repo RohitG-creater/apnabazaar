@@ -142,3 +142,22 @@ $(document).on('click','#btn_submit_login_user',function(){
 
     
 });
+
+$(".add_to_cart").click(function(){
+  var product_id = $(this).attr('data-product-id');
+  $.ajax({
+    url : base_url+"add_to_cart",
+    type : 'Get',
+    data : { 'product_id':product_id},
+    dataType : 'json',
+    beforeSend :  function (){ $(".loading").show(); },
+    success : function(data){
+      if(data.message == "Added"){
+        alert("Product_Added");
+        $("#login_user_mobile").focus();
+        $(".loading").hide();
+        return false;
+      }
+    }
+  });
+});

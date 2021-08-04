@@ -16,6 +16,11 @@ class Home_Model extends CI_Model {
         return $this->db->get('tbl_product')->row();
     }
 
+    public function Get_Single_Product_BY_ID($product_id){
+        $this->db->like('ID',$product_id);
+        return $this->db->get('tbl_product')->row();
+    }
+
    
 }
 ?>

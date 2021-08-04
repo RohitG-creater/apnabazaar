@@ -257,7 +257,7 @@
                                                     <p><del><?= $product->Product_Price_Without_Offer; ?></del><em
                                                             class="item_price"><?= $product->Product_Offer_Price; ?></em>
                                                     </p>
-                                                    <a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add
+                                                    <a href="#" data-product-id="<?= $product->ID; ?>" data-text="Add To Cart" class="my-cart-b item_add add_to_cart">Add
                                                         To Cart</a>
                                                 </div>
                                             </div>

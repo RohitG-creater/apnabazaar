@@ -63,6 +63,7 @@ $route['single-product'] = 'Home_Controller/Single_Product';
 $route['save_registration'] = 'User_Controller/Save_Registration';
 $route['check_login'] = 'User_Controller/Check_Login';
 $route['product-(:any)'] = 'Home_Controller/Single_Product';
+$route['add_to_cart'] = 'Home_Controller/Add_To_Cart';
 
 
 /**-------------Admin Route Url--------------------**/
